@@ -7,3 +7,5 @@ WriteLine($"You must pay {taxToPay:C} in tax.");
 
 // RunCardinalToOrdinal();
 RunFactorial();
+// RunFibImperative();
+RunFibFunctional();
