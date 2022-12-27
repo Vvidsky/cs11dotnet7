@@ -1,0 +1,8 @@
+Console App
+dotnet new console
+
+Class library
+dotnet new classlib -o StringLibrary
+
+Unicode Encoding
+Console.OutputEncoding = System.Text.Encoding.Unicode;
