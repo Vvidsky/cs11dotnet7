@@ -18,3 +18,16 @@ Publish a single-file app
 dotnet publish -r win10-x64 -c Release --no-self-contained /p:PublishSingleFile=true
 dotnet publish ... -p:PublishTrimmed=True
 dotnet publish ... -p:PublishTrimmed=True -p:TrimMode=Link
+
+dotnet tool list --global
+dotnet tool uninstall --global dotnet-ef
+dotnet tool install --global dotnet-ef
+sqlite3 Northwind.db -init Northwind4SQLite.sql
+dotnet ef dbcontext scaffold "Filename=../Northwind.db" Microsoft.EntityFrameworkCore.Sqlite --namespace Packt.Shared --data-annotations
+dotnet ef dbcontext scaffold "Filename=Northwind.db" Microsoft.EntityFrameworkCore.Sqlite --table Categories --table Products --output-dir AutoGenModels --namespace WorkingWithEFCore.AutoGen --data-annotations --context Northwind
+
+dotnet new web
+dotnet dev-certs https --trust
+dotnet run --launch-profile https
+
+dotnet new razorclasslib --support-pages-and-views -o Northwind.Razor.Employees

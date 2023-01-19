@@ -1,0 +1,2 @@
+Customizing the reverse engineering templates
+https://learn.microsoft.com/en-us/ef/core/managing-schemas/scaffolding/templates?tabs=dotnet-core-cli

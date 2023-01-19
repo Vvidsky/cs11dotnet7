@@ -1,0 +1,27 @@
+using Packt.Shared; // Northwind, Customer
+
+using (Northwind db = new())
+{
+  IQueryable<string?> distinctCities = db.Customers.Select(c => c.City).Distinct();
+
+  WriteLine("A list of cities that at least one customer resides in:");
+  WriteLine($"{string.Join(", ", distinctCities)}");
+  WriteLine();
+
+  Write("Enter the name of a city: ");
+  string city = ReadLine()!;
+
+  IQueryable<Customer> customersInCity = db.Customers.Where(c => c.City == city);
+
+  if (customersInCity is null)
+  {
+    WriteLine("No customers found in {0}.", city);
+    return;
+  }
+
+  WriteLine("There are {0} customers in {1}:", customersInCity.Count(), city);
+  foreach (Customer c in customersInCity)
+  {
+    WriteLine($"  {c.CompanyName}");
+  }
+}
